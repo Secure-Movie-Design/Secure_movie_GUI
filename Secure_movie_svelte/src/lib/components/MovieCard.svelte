@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Card, CardHeader, CardTitle, CardBody, CardSubtitle, CardText, CardImg } from "sveltestrap"
 
+    export let id: number;
     export let title: string;
     export let director: string;
     export let img:string;
@@ -11,10 +12,10 @@
 <div class="card">
     <Card>
         <CardHeader>
-            <img src={img} alt="not available" width="100%">
+            <a href="/movieDetails/{id}"><img src={img} alt="not available" width="100%"></a>
             <div class="title">
                 <h2>
-                    <a href="/movieDetails">{title}</a>
+                    <a href="/movieDetails/{id}">{title}</a>
                 </h2>
             </div>
         </CardHeader>

@@ -8,6 +8,7 @@
 <div class="container">
     {#each movies as movie}
         <MovieCard
+            id={movie.id}
             title={movie.title}
             director={movie.director}
             img={movie.image_url}
@@ -15,27 +16,6 @@
         ></MovieCard>
     {/each}
 </div>
-
-<!--
-<table>
-    {#each {length: (movies.length/cols)} as _}
-        <tr>
-            {#each {length: cols} as _}
-                {#if getIndex() < movies.length}
-                    <th class="col-2">
-                        <MovieCard
-                            title={chooseMovie().title}
-                            director={chooseMovie().director}
-                            img={chooseMovie().image_url}
-                            description={chooseMovieWithIncrement().description}
-                        ></MovieCard>
-                    </th>
-                {/if}
-            {/each}
-        </tr>
-    {/each}
-</table>
--->
 
 <style>
     .container {
@@ -62,12 +42,4 @@
             grid-gap: 5px;
 		}
     }
-
-    /*
-    .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-        gap: 1rem;
-    }
-    */
 </style>
