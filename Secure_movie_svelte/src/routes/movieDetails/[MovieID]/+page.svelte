@@ -30,21 +30,22 @@
 </script>
 
 <div class="container">
-    <div class="card">
+    <img src={movie.image_url} alt="not available">
+    <div class="details">
         <div class="title">
             {movie.title || "-"}
         </div>
-        <img src={movie.image_url} alt="not available">
         <div class="major-data">
-            Director: {movie.director || "-"}
+            <b><em>Year :</em></b> {movie.year || "-"}
         </div>
         <div class="major-data">
-            Category: {movie.category || "-"}
+            <b><em>Category :</em></b> {movie.category || "-"}
+        </div>
+        <div class="major-data">
+            <b><em>Director :</em></b> {movie.director || "-"}
         </div>
         <div class="minor-data">
-            Year: {movie.year || "-"}
-        </div>
-        <div class="minor-data">
+            Description:<br>
             {movie.description || "-"}
         </div>
     </div>
@@ -58,15 +59,14 @@
 
     .container {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
-    .card {
+    .details {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgb(33,36,40);
         margin: 40px;
         padding: 30px;
         border-radius: 20px;
@@ -78,21 +78,21 @@
         width: 100%;
         max-width: 400px;
         border-radius: 10px;
-        margin: 20px;
+        margin: 10px;
     }
 
     .title {
         font-size: 4.5em;
-        margin: 20px;
+        margin: 10px;
     }
 
     .major-data {
         font-size: 2em;
-        margin: 20px;
+        margin: 10px;
     }
 
     .minor-data {
         font-size: 1.5em;
-        margin: 20px;
+        margin: 10px;
     }
 </style>
