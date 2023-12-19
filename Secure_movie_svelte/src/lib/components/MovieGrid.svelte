@@ -3,24 +3,20 @@
     import type { Movie } from "../../model/Movie";
 
     export let movies:Movie[];
-    let cols: number = 4;
-    let index: number = 0;
-
-    function getIndex(): number {
-        return index;
-    }
-
-    function chooseMovie(): Movie {
-        return movies[index];
-    }
-
-    function chooseMovieWithIncrement(): Movie {
-        let target = movies[index];
-        index++;
-        return target;
-    }
 </script>
 
+<div class="container">
+    {#each movies as movie}
+        <MovieCard
+            title={movie.title}
+            director={movie.director}
+            img={movie.image_url}
+            category={movie.category}
+        ></MovieCard>
+    {/each}
+</div>
+
+<!--
 <table>
     {#each {length: (movies.length/cols)} as _}
         <tr>
@@ -30,7 +26,7 @@
                         <MovieCard
                             title={chooseMovie().title}
                             director={chooseMovie().director}
-                            img={chooseMovie().img}
+                            img={chooseMovie().image_url}
                             description={chooseMovieWithIncrement().description}
                         ></MovieCard>
                     </th>
@@ -39,3 +35,39 @@
         </tr>
     {/each}
 </table>
+-->
+
+<style>
+    .container {
+        display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 10fr;
+		grid-gap: 5px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+		.container {
+            display: grid;
+			grid-template-columns: 1fr 1fr;
+            grid-template-rows: 10fr;
+            grid-gap: 5px;
+		}
+	}
+
+    @media only screen and (max-width: 600px) {
+        .container {
+            display: grid;
+			grid-template-columns: 1fr;
+            grid-template-rows: 10fr;
+            grid-gap: 5px;
+		}
+    }
+
+    /*
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+        gap: 1rem;
+    }
+    */
+</style>
