@@ -4,8 +4,8 @@
 
     import type { Movie } from "../../../model/Movie";
 
-    const index: number = $page.url.toString().lastIndexOf("/")+1;
-    const movieID: number = Number.parseInt($page.url.toString().slice(index));
+    const index: number = $page.url.toString().indexOf("movieDetails/") + 13;
+    const movieID: number = parseInt($page.url.toString().substring(index).split("/")[0]);
 
     let movie: Movie = {
         id:-1,
@@ -25,7 +25,6 @@
                 movie = data;
             }).catch(error => {
                 console.log(error);
-                return [];
             })
     });
 </script>
@@ -33,20 +32,20 @@
 <div class="container">
     <div class="card">
         <div class="title">
-            {movie.title}
+            {movie.title || "-"}
         </div>
         <img src={movie.image_url} alt="not available">
         <div class="major-data">
-            Director: {movie.director}
+            Director: {movie.director || "-"}
         </div>
         <div class="major-data">
-            Category: {movie.category}
+            Category: {movie.category || "-"}
         </div>
         <div class="minor-data">
-            Year: {movie.year}
+            Year: {movie.year || "-"}
         </div>
         <div class="minor-data">
-            {movie.description}
+            {movie.description || "-"}
         </div>
     </div>
 </div>
