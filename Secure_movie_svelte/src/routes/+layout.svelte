@@ -17,14 +17,14 @@
 
 <style>
     .container {
-        background-color: rgb(200, 155, 90);
+        background-color: rgb(21,21,21);
     }
 
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: rgb(155, 95, 10);
+        background-color: rgb(82,50,163);
         color: #fff;
         font-size: 1.4em;
         height: 70px;
@@ -70,7 +70,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: rgb(155, 95, 10);
+        background-color: rgb(82,50,163);
         color: #fff;
         font-size: 1.4em;
         height: 50px;

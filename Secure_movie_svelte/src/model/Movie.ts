@@ -1,7 +1,9 @@
 export interface Movie {
     id:number,
     title:string,
+    category:string,
+    year:number,
     director:string,
-    img:string,
+    image_url:string,
     description:string
 }

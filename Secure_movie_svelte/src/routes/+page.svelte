@@ -1,19 +1,22 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+
     import MovieGrid from "../lib/components/MovieGrid.svelte"
     import type { Movie } from "../model/Movie";
 
     let movies: Movie[] = [];
-    //TODO: make an API request to retrieve real datas from backend
-    for (let i = 0; i<10; i++) {
-        let movie:Movie = {
-            id:i,
-            title:"title"+i,
-            director:"director"+i,
-            img:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nationalgeographic.com%2Fanimals%2Fmammals%2Ffacts%2Fdomestic-cat&psig=AOvVaw2NAbROHLMvJ1ca2VYFsKLq&ust=1702751962620000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIi_6sSLkoMDFQAAAAAdAAAAABAD",
-            description:"description"+i
-        }
-        movies.push(movie)
-    }
+
+    onMount(async () => {
+        fetch("http://localhost:8000/api/v1/movies")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                movies = data;
+            }).catch(error => {
+                console.log(error);
+                return [];
+            })
+    });
 </script>
 
 <div class="container">
