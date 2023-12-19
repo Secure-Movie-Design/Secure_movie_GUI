@@ -4,7 +4,7 @@
     export let title: string;
     export let director: string;
     export let img:string;
-    export let description: string;
+    export let category: string;
 
 </script>
 
@@ -19,7 +19,8 @@
             </div>
         </CardHeader>
         <CardBody>
-          <h4>{director}</h4>
+          <h4 class="body">{director}</h4>
+          <h4 class="body">{category}</h4>
         </CardBody>
     </Card>
 </div>
@@ -49,15 +50,23 @@
     .title {
         background-color: rgb(67, 72, 80);
         border-radius: 5px;
+        text-align: center;
     }
 
     .title a {
-        color: #fff;
+        color: #000;
         text-decoration: none;
         transition: .3s;
     }
 
     .title a:hover {
-        color: #000;
+        color: #fff;
+        font-weight: 1000;
+    }
+
+    .body {
+        color: #afafaf;
+        font-weight: 500;
+        text-align: center;
     }
 </style>
