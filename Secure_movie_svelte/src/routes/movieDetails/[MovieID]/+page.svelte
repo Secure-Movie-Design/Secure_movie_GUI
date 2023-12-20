@@ -62,6 +62,14 @@
         justify-content: space-evenly;
     }
 
+    @media only screen and (max-width: 1000px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     .details {
         display: flex;
         flex-direction: column;
